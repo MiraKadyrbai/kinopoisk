@@ -8,11 +8,11 @@
     <%- include('partials/header.ejs')%>
     <div class="container">
         <div class="main">
-            <form action="" class="form">
+            <form action="/api/films/new" method="POST" class="form" enctype="multipart/form-data">
                 <h3>Новый фильм</h3>
                 <fieldset class="fieldset">
                     <label for="">Добавьте картинку фильма</label>
-                    <input type="file"  name="filmImg">
+                    <input type="file"  name="image" >
                 </fieldset>
                 <fieldset class="fieldset">
                     <label for="">Название фильма на русском</label>
@@ -34,9 +34,9 @@
                     <label for="">Страна выпуска</label>
                     <select name="country" id="">
                         <%
-                          countries.forEach(country => {
+                            counties.forEach(country => {
                         %>
-                        <option value=""><%=country.name%></option>
+                        <option value="<%=country._id%>"><%=country.name%></option>
                         <% }) %>
                     </select>
                 </fieldset>
@@ -46,15 +46,23 @@
                         <%
                             genres.forEach (genre =>{
                         %>
-                            <option value=""><%= genre.name%></option>
+                            <option value="<%=genre._id%>"><%= genre.name%></option>
                         <%
                             })
                         %>
                     </select>
                 </fieldset>
+                <a class="addSeriesBtn" id="addSeriesBtn" onclick="addSeries()">Добавить серии</a>
+                <a class="addSeriesBtn" id="addFilmUrlBtn" onclick="addFilmUrl()">Добавить ссылку на фильм</a>
+                <!-- <div class="series">
+                    <p>1 серия</p>
+                    <input type="text" placeholder="Введите ссылку на серию">
+                </div> -->
+                <div id="urls"></div>
                 <fieldset class="fieldset"><button type="submit">Добавить</button></fieldset>
             </form>
         </div>
     </div>
+    <%- include('partials/scripts.ejs')%>
 </body>
 </html>

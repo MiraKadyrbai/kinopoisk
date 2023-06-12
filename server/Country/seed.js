@@ -1,4 +1,4 @@
-const Country = require('./Country')
+const Country = require('./Country');
 
 const data = [
     'Россия',
@@ -6,7 +6,6 @@ const data = [
     'США',
     'Франция',
     'Южная Корея',
-    'Боевики',
     'Великобритания',
     'Япония',
     'Италия',
@@ -15,7 +14,7 @@ const data = [
     'Турция',
     'Швеция',
     'Дания',
-    'Австралия'
+    'Гонконг'
 ]
 
 async function writeDataCountry(){
